@@ -1,1 +1,19 @@
-Nothing useful yet
+Ruby implementation of L-System
+
+This project is in a very initial stage, so don't create any great expectation yet! :-P
+
+
+Right now, it's only possible to create 2D productions like the below:
+
+l = LSystem.create do       
+  rule "First" do
+    alphabet ['F', '-', '-'] 
+    axiom :F
+    production ({:F => 'F-F+F+F-F'})
+  end  
+end
+
+puts l.generate
+puts l.generate
+puts l.generate
+

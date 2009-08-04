@@ -41,9 +41,10 @@ class ProductionTest < Test::Unit::TestCase
 		first_iteration = 'F-F+F+F-F'
 		second_iteration = 'F-F+F+F-F-F-F+F+F-F+F-F+F+F-F+F-F+F+F-F-F-F+F+F-F'
 		assert_equal first_iteration, p.produce('F')
-		assert_equal second_iteration, p.produce(first_iteration)
-		
+		assert_equal second_iteration, p.produce(first_iteration)		
 	end
+	
+	#TODO need to test alphabets and axioms
 	
 end
 

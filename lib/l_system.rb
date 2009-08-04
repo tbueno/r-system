@@ -33,11 +33,6 @@ class LSystem
     @prod = p       
     p.copyvars       
   end
-    
-  
-  def self.alphabet(a)
-    @alphabet = a    
-  end
   
   def generate   
     @text = @prod.produce(@text)
@@ -45,10 +40,9 @@ class LSystem
   end
 end
 
-
-l = LSystem.create do 
-  alphabet ['F', '-', '-']     
+l = LSystem.create do       
   rule "First" do
+    alphabet ['F', '-', '-']
     axiom :F
     production ({:F => 'F-F+F+F-F'})
   end  

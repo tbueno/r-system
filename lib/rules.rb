@@ -17,6 +17,10 @@ class Rules
   def self.axiom(axiom)
     @axiom = axiom    
   end
+  
+  def self.alphabet(a)
+    @alphabet = a    
+  end
  
   def produce(text)  
     return @axiom if text == nil
