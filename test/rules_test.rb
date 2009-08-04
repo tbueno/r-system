@@ -6,10 +6,10 @@ require 'rules'
 class ProductionTest < Test::Unit::TestCase
 	
 	def setup
-#		@production = Production.new({:F => 'FF'})		
 		@rules = Rules.new("test")
 		@rules.class.class_eval do
-			production ({:F => 'F+F--F+F'}) #fix sintaxe    		
+			axiom :F
+			production ({:F => 'F+F--F+F'})			   		
 		end
 		@rules.copyvars
     #@production.class.class_eval(&blk) 

@@ -30,18 +30,13 @@ class LSystem
   def self.rule(name, &blk)
     p = Rules.new(name)
     p.class.class_eval(&blk)   
-    @prod = p
-    @text = @axiom.to_s 
+    @prod = p       
     p.copyvars       
   end
     
   
   def self.alphabet(a)
     @alphabet = a    
-  end
-  
-  def self.axiom(sym)
-    @axiom = sym
   end
   
   def generate   
@@ -52,13 +47,14 @@ end
 
 
 l = LSystem.create do 
-  alphabet ['F', '-', '-']
-  axiom :F  
+  alphabet ['F', '-', '-']     
   rule "First" do
+    axiom :F
     production ({:F => 'F-F+F+F-F'})
   end  
 end
 
+puts l.generate
 puts l.generate
 puts l.generate
 

@@ -1,20 +1,26 @@
 class Rules
   
   def initialize(name)
-    @name = name
+    @name = name    
   end
   
   def copyvars
-  self.class.instance_variables.each do |var|
-   instance_variable_set(var, self.class.instance_variable_get(var))
-  end 
- end
+    self.class.instance_variables.each do |var|
+      instance_variable_set(var, self.class.instance_variable_get(var))
+    end 
+  end
   
   def self.production(rules)
     @rules = rules
-  end
+  end 
   
-  def produce(text)    
+  def self.axiom(axiom)
+    @axiom = axiom    
+  end
+ 
+  def produce(text)  
+    return @axiom if text == nil
+    text = text.to_s
     return produce_char(text) if text.size == 1
     produced_text = ''
     text.split('').each do |c|
